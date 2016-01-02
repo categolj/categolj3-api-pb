@@ -63,7 +63,7 @@ public class EntryRestPbController {
         entry.getFrontMatter().getCategories().forEach(frontMatterBuilder::addCategories);
         return Entry.newBuilder()
                 .setEntryId(entry.getEntryId())
-                .setContent(entry.getContent())
+                .setContent(entry.getContent() == null ? "" : entry.getContent())
                 .setCreated(Entry.Author.newBuilder()
                         .setName(entry.getCreated().getName())
                         .setDate(entry.getCreated().getDate().toEpochSecond()))
